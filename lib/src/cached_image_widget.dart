@@ -39,6 +39,11 @@ class CachedNetworkImage extends StatelessWidget {
     return CachedNetworkImageProvider(url, scale: scale).evict();
   }
 
+  static Future get clearCache async {
+    var cacheManager = DefaultCacheManager();
+    await cacheManager.emptyCache();
+  }
+
   final CachedNetworkImageProvider _image;
 
   /// Option to use cachemanager with other settings
